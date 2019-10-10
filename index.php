@@ -22,10 +22,10 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     
     $email = $_POST['email'];
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-        NULL;
-    } else {
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
         $email_Err = "is not a valid email address";
+    } else {
+        NULL;
     };
     
     $country = htmlspecialchars(strip_tags($_POST['country']));
@@ -53,6 +53,21 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
     };
     //echo "<pre>";
     //print_r ($_POST);
+    if(isset($_POST["submit"])){
+        if($firstname_Err = $lastname_Err = $email_Err = $message_Err == ""){
+        NULL;
+        }else{
+        $subject = $_POST['subject'];
+        $message = $_POST['message'];
+        $headers = 'From:'. $email2 . "Send mail from localhost using PHP"; // Sender's Email
+        $headers .= 'Cc:'. $email2 . "Send mail from localhost using PHP"; // Carbon copy to Sender
+        // Message lines should not exceed 70 characters (PHP rule), so wrap it
+        $message = wordwrap($message, 70);
+        // Send Mail By PHP Mail Function
+        mail($email, $subject, $message, $headers);
+        echo "Your request has been sent successfuly ! Thank you for your feedback";
+        }
+    }
 };
 
 
@@ -107,27 +122,21 @@ echo "</pre>";
             <form method="POST" action='index.php'>   
 
                 <div class ="row mt-2 text-center">
-                    <div class = "col-12">
-                        First name
-                    </div>
-                    <div class ="col-12 mt-1 text-center">
-                        <input class="form-control" type="text" name="firstname" value = <?php echo "$firstname"?>>
+                    <div class ="col-12 text-center">
+                        <label for="firstname">Your first name is:</label>
+                        <input class="form-control" type="text" name="firstname" alt= "indicate your first name" value = <?php echo "$firstname"?>>
                         <span class="error">* <?php echo $firstname_Err;?></span>
                     </div>
 
-                    <div class ="col-12 mt-2 text-center">
-                        Last name
-                    </div>
                     <div class ="col-12 mt-1 text-center">
-                        <input class="form-control" type="text" name="lastname" value = <?php echo "$lastname"?>>
+                        <label for="lastname">Your last name is:</label>
+                        <input class="form-control" type="text" name="lastname" alt= "indicate your last name" value = <?php echo "$lastname"?>>
                         <span class="error">* <?php echo $lastname_Err;?></span>
                     </div>
 
                     <div class ="col-12 mt-2 text-center">
-                        Gender
-                    </div>
-                    <div class ="col-12 mt-2 text-center">
-                        <select name="gender" size="1">
+                        <label for="gender">Your gender is:</label><br>
+                        <select name="gender" size="1" alt= "choose your gender">
                             <option value="Male" <?php if (isset($gender) && $gender=="Male") echo "selected";?>>Male</option>
                             <option value="Female" <?php if (isset($gender) && $gender=="Female") echo "selected";?>> Female</option>
                             <option value="Other" <?php if (isset($gender) && $gender=="Other") echo "selected";?>> Other</option>
@@ -135,18 +144,14 @@ echo "</pre>";
                     </div>
 
                     <div class ="col-12 mt-2 text-center">
-                        Your email adress
-                    </div>
-                    <div class ="col-12 mt-2 text-center">
-                        <input class="form-control" type="email" name="email" value = <?php echo "$email"?>>
+                    <label for="email">Your e.Mail adress is:</label>
+                        <input class="form-control" type="email" name="email" alt= "indicate your email" value = <?php echo "$email"?>>
                         <span class="error">* <?php echo $email_Err;?></span>
                     </div>
 
-                    <div class ="col-12 mt-4 text-center">
-                        Your country
-                    </div>
                     <div class ="col-12 text-center">
-                        <select name="country" size="1">
+                        <label for="country">Your country is:</label>
+                        <select name="country" size="1" alt= "choose your country">
                             <option value="Belgium" <?php if (isset($country) && $country=="Belgium") echo "selected";?>>Belgium</option>
                             <option value="France" <?php if (isset($country) && $country=="France") echo "selected";?>> France</option>
                             <option value="Luxemburg" <?php if (isset($country) && $country=="Luxemburg") echo "selected";?>> Luxemburg</option>
@@ -155,11 +160,9 @@ echo "</pre>";
                         </select>
                     </div>
 
-                    <div class ="col-12 mt-4 text-center">
-                        Subject
-                    </div>
                     <div class ="col-12 mt-1 text-center">
-                        <select name="subject" size="1">
+                        <label for="subject">Subject of your message:</label>
+                        <select name="subject" size="1" alt= "choose your subject">
                             <option value="Other" <?php if (isset($subject) && $subject=="Other") echo "selected";?>> Other</option>
                             <option value="Emily" <?php if (isset($subject) && $subject=="Emily") echo "selected";?>>About Emily that is soooo great</option>
                             <option value="Marvin" <?php if (isset($subject) && $subject=="Marvin") echo "selected";?>> About Marvin who is soooo intelligent</option>
@@ -172,7 +175,7 @@ echo "</pre>";
                         <label for="message">Your message</label>
                     </div>
                     <div class ="col-12 mt-1 text-center">
-                        <textarea id="message"name="message"rows="5"cols="50"><?php if(isset($message))echo"$message";?></textarea><br>
+                        <textarea id="message"name="message"rows="5"cols="50" alt= "provide us your message"><?php if(isset($message))echo"$message";?></textarea><br>
                         <div class="error">* <?php if (isset($message_Err)) echo "$message_Err";?></div>
                     </div>
 
@@ -187,7 +190,7 @@ echo "</pre>";
 
             <footer class="row mt-4">
                 <div class="col-6">                  
-                    <p>Legal disclaimer: By watching this webpage you agree us to use all your datas as we wish. You will be spamed as you've never seen before.</p>
+                    <p>Legal disclaimer: By watching this webpage you allow us to use all your datas as we wish. You will be spamed as you've never been before.</p>
                 </div>
                 <div class="col-6">
                     <p>This webpage is currently powered by: <a href="https://github.com/MatthieuDuranton" class="btn">Matthieu</a> and is his rightful property. You don't care because you have no use of it anyway</p>                  
