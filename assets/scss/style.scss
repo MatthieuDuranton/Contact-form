@@ -1,0 +1,17 @@
+@font-face {
+    font-family: bellota;
+    src: url("../img/Bellota-Regular.otf");
+}
+//color: #15c5bd, #FFF, #303030;
+body {
+    background-color: #15c5bd;
+    font-family: bellota;
+    font-weight: bold;
+}
+.container{
+    background-color: white;
+}
+
+.error {
+    color: red;
+}
