@@ -54,22 +54,22 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
     //echo "<pre>";
     //print_r ($_POST);
     
-    /*
+    
     if(isset($_POST["rendu"])){
         if($firstname_Err OR $lastname_Err OR $email_Err OR $message_Err == ""){
             $to = "$email";
             $subject = 'Request to Hackers Poulette';
             $reply = 'You succesfully sent your request to our services!';
-            $headers = "From: mduranton63@gmail.com" . "\r\n";
+            $headers = "From".$from;
             if (mail($to, $subject, $reply, $headers)) {
-               return "success";
+               echo "success";
             } else {
-               return "error";
+               echo "error";
             }
         }else{
             NULL;
         }
-    }*/
+    }
 };
 
 

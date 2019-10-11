@@ -25,12 +25,16 @@
 * Page Github
 # https://github.com/MatthieuDuranton/Contact-form
 * Page du site
-# https://exercicebecode.000webhostapp.com/ : la page
+# https://exercicebecode.000webhostapp.com/
 
 ### Spécificités:
-* Page rendue dynamique
+* Page rendue responsive
 * Les inputs remplis restent remplis après validation en cas d'erreurs, y compris les menus déroulants et à puces
 * Le reset efface tout les inputs ainsi que les messages d'erreurs
+
+### Remarques:
+* Content car j'ai pu aider de nombreuses personnes que j'estimais pourtant plus avancées que moi
+* J'ai un peu laissé de côté l'aspect esthétique pour me concentrer sur le PHP et l'ergonomie
 
 ![Mockup](assets/img/mockup.pdf "Mockup page du site poulette")
 
