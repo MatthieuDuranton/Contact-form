@@ -1,17 +1,48 @@
 @font-face {
-    font-family: bellota;
+    font-family: bel_reg;
     src: url("../img/Bellota-Regular.otf");
 }
-//color: #15c5bd, #FFF, #303030;
+@font-face {
+    font-family: bel_bold;
+    src: url("../img/Bellota-Bold.otf");
+}
+
 body {
     background-color: #15c5bd;
-    font-family: bellota;
-    font-weight: bold;
+    font-family: bel_reg;
+    font-size: 1.3em;
+    color: #15c5bd, #FFF, #303030;
 }
 .container{
     background-color: white;
 }
 
+h5 {
+    font-family: bel_bold;
+    color:#15c5bd;
+}
+
 .error {
     color: red;
+}
+.a {
+    font-family: bel_reg;
+    font-size: 1.3em;
+}
+
+.button {
+    width: 120px;
+    margin-left: 35px;
+    display: block;
+    background-color: #303030;
+  }
+
+  .flycatcher{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    z-index: -1;
 }
