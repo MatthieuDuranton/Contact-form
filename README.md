@@ -1,19 +1,19 @@
 # Exercice Form
 
-### Objectif:
-* Créer une page permettant à des utilisateurs de contacter une entreprise
-* Utiliser PHP
-* Porter le site sur serveur
-* Apprendre à sécuriser la page pour éviter les spams (honeypot)
-* Apprendre à sécuriser les inputs afin de ne pas recevoir de code malicieux (sanitize)
-* Créer une réponse mail
-* Signaler à l'utilisateur les inputs obigatoires
-* Signaler à l'utilisateur les inputs mals remplis
+### Goal:
+* Create a webpage for users to log in a company website
+* use of PHP
+* deploy website on a server
+* Secure the webpage to avoid spam (honeypot)
+* Secure inputs not to receive malicious code (sanitize)
+* Send the user a mail
+* Signal users the mandatory inputs
+* Signal users non valid inputs
 
-### Contexte :
-* Second mois de la formation
-* format de la page imposé (form, outils...)
-* Moins de 3 jours de travail en mode solo
+### Context :
+* Third training month
+* Done by myself
+* Couldn't make the mail answer work with OOO server
 
 ### Langages et framework :
 * HTML
@@ -21,20 +21,19 @@
 * Bootstrap
 * PHP
 
-### Accès à mes sites :
-* Page Github
+* My Github page
 # https://github.com/MatthieuDuranton/Contact-form
-* Page du site
+* Site page
 # https://exercicebecode.000webhostapp.com/
 
-### Spécificités:
-* Page rendue responsive
-* Les inputs remplis restent remplis après validation en cas d'erreurs, y compris les menus déroulants et à puces
-* Le reset efface tout les inputs ainsi que les messages d'erreurs
+### Specifics:
+* Webpage made responsive
+* Inputs stay even after an error, even the scroll down menus and radio buttons
+* reset remove every inputs and error messages
 
 ### Remarques:
-* Content car j'ai pu aider de nombreuses personnes que j'estimais pourtant plus avancées que moi
-* J'ai un peu laissé de côté l'aspect esthétique pour me concentrer sur le PHP et l'ergonomie
+* Glad I could help many people, including some I thought mare advanced than me
+* I focused more on PHP than on the style
 
 ![Mockup](assets/img/mockup.pdf "Mockup page du site poulette")
 
